@@ -8,18 +8,17 @@ require 'spreedly'
 
 adyen = Adyen::Client.new 
 adyen.env = :test
-# adyen.api_key = "AQErhmfxL4PIYhRAw0m/n3Q5qf3Va4NMH5RPWmBTCbxqdVh9nev0UTOvnsds3xDBXVsNvuR83LVYjEgiTGAH-6jn1Y74ao7ButC3mVV/nncKdeLWdD4MoDsuumXUPjhA=-E3SJck5grk98mIpv"
 adyen.ws_user = 'ws@Company.Chargebee'
-adyen.ws_password = 'sKkmvzPgY}T8b-2K3n6n[%F*^'
+adyen.ws_password = '<adyen password>'
 
 set :allow_origin, "*"
 set :allow_methods, "GET,HEAD,POST"
 set :allow_headers, "content-type,if-modified-since"
-Stripe.api_key = 'sk_test_TD6l07P6J8pKb6WMwSmWz2nE'
+Stripe.api_key = '<stripe api key>'
 
 ################### Spreedly
 
-  env = Spreedly::Environment.new("B6bJMGhty3Xei2UJ7xIc1QzQHH1", "Mfn8SIp5QjAp48ntS1DtM3MAKwKpTn359Sgxpgptsez3PiDfPUfzLxmwMx3msve2")
+  env = Spreedly::Environment.new("B6bJMGhty3Xei2UJ7xIc1QzQHH1", "<spreedly environment password>")
 
   post '/spreedly/authorize' do
   data = JSON.parse(request.body.read.to_s)
@@ -47,14 +46,8 @@ end
 Braintree::Configuration.environment = :sandbox
 Braintree::Configuration.merchant_id = "nj4dqm7pgxr4njbn"
 Braintree::Configuration.public_key = "xr8zpm47sgkyywbq"
-Braintree::Configuration.private_key = "8a513022877fbee9fde27046a86082fa"
+Braintree::Configuration.private_key = "<private key>"
 
-#braintree = Braintree::Gateway.new(
- # :environment => :sandbox,
-  #:merchant_id => "jszbnz6jgstn85rp",
-  #:public_key => "x8xhgh2t68zz83fp",
-  #:private_key => "ce975729cbad5bf5ab882a289818668e"
-#)
 
 #################
 post '/braintree/nonce' do
