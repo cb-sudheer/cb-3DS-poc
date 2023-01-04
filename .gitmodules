@@ -1,0 +1,3 @@
+[submodule "checkout.com"]
+	path = checkout.com
+	url = git@github.com:cb-sudheer/checkout.com.git
